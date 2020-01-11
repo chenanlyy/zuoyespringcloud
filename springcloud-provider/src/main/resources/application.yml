@@ -1,0 +1,35 @@
+server:
+  port: 8010
+eureka:
+  client:
+    service-url:
+      #ע�����ĵ�ַ
+      defaultZone: http://localhost:8089/eureka
+spring:
+  redis:
+    host: 127.0.0.1
+    maxActive: 600
+    maxIdle: 300
+    maxWait: 1000
+    pass: ''
+    port: 6379
+    testOnBorrow: true
+    data:
+      mongodb:
+        database: 1906B
+        host: 127.0.0.1
+        port: 27017
+  application:
+    #������ע�����ĵ����� ��ͬ�������Ʋ����ظ�
+    name: cloud-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/lyyming?useUnicode=true&characterEncoding=utf-8
+    username: root
+mybatis:
+  config-locations: classpath:mapping/confg.xml
+  mapper-locations: classpath:mapping/mapper/*.xml
+  type-aliases-package: com.jk.model
+
+

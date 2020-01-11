@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-config" />
+        <module name="springcloud-feign" />
+        <module name="springcloud-provider" />
+        <module name="springcloudcommon" />
+        <module name="springcloud-eureka" />
+        <module name="demobook" />
+        <module name="springcloudapi" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demobook" options="-parameters" />
+      <module name="springcloud-config" options="-parameters" />
+      <module name="springcloud-eureka" options="-parameters" />
+      <module name="springcloud-feign" options="-parameters" />
+      <module name="springcloud-provider" options="-parameters" />
+      <module name="springcloudapi" options="-parameters" />
+      <module name="springcloudcommon" options="-parameters" />
+    </option>
+  </component>
+</project>

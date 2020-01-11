@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--====== Main js ======-->
+    <script src="../js2/jquery.min.js"></script>
+    <script src="../js2/bootstrap3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap3/css/bootstrap.css" />
+
+
+    <script src="../js2/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../js2/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap-table/bootstrap-table.css"/>
+
+    <script src="../js2/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js2/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+
+    <!-- 引入弹框的js -->
+    <script src="../js2/bootstrap-bootbox/bootbox.js"></script>
+
+
+    <link rel="stylesheet" href="../js2/bootstrap-fileinput/css/fileinput.css"/>
+    <script src="../js2/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="../js2/bootstrap-fileinput/js/locales/zh.js"></script>
+
+</head>
+<body>
+
+
+
+
+<div class="row" >
+    <div class="col-md-3"  style="border-top:1px solid #99CCCC">
+<input type="hidden" id="sex" th:value="${session.us.sex}">
+        <div class="col-md-6 space-sm-4">
+            <div class="sidenav">
+                <ul class="sidenav-list">
+                    <li>
+                   <a> 编辑个人资料</a>
+                    </li>
+                    <li>
+                        <a>照片</a>
+                    </li>
+                    <li>
+                        <a>信任和验证</a>
+                    </li>
+                    <li>
+                        <a >评价</a>
+                    </li>
+
+                    <li>
+                    </li>
+                </ul>
+            </div>
+
+
+            <a href="/users/show/324760713" class="btn btn-block space-top-4">查看个人资料</a>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-6" style="border:3px solid #C0C0C0;width: 800px;height: 1000px">
+        <form class="form-horizontal" role="f orm" id="addBookForm">
+            <input type="hidden" name="id" id="id" th:value="${session.us.id}">
+            <div class="form-group" >
+                <label for="inputEmail3"  class="col-sm-2 control-label">名字:</label>
+                <div class="col-sm-5">
+                    <input type="text" name="ming" th:value="${session.us.ming}"  id="ming" class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">姓氏:</label>
+                <div class="col-sm-5">
+                    <input type="text" name="familyname" id="familyname" th:value="${session.us.familyname}" class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">出生日期:</label>
+                <div class="col-sm-5">
+                    <input type="date" name="fightdate"  class="form-control"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">性别<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+
+                <div class="col-sm-2" >
+                    <select class="form-control" id="tid" name="sex" placeholder="类型添加">
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                        <option value="2">其他</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">电子邮件：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+
+                <div class="col-sm-4" >
+                    <input type="text" th:value="${session.us.email}" name="email" id="emai" class="form-control"  />
+                </div>
+            </div>
+            <div class="row" >
+                <label for="inputPassword3" class="col-sm-2 control-label">手机号&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+
+                <div class="col-md-4" >
+                    <input type="text" th:value="${session.us.phone}" name="phone" id="phone" class="form-control"  />
+                </div>
+
+                <div class="col-md-4" >
+                     <button type="button" class="btn btn-info btn-sm">验证手机号</button>
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">自我介绍</label>
+                <div class="col-sm-8">
+                    <textarea name="userinfo"  th:text="${session.us.userinfo}" value="1" class="form-control" rows="6">
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">你住的地方:</label>
+                <div class="col-sm-8">
+                    <input type="text" name="zhu" th:value="${session.us.zhu}" placeholder="例如，法国巴黎 / 纽约布鲁克林 / 伊利诺伊州芝加哥" class="form-control"  />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label >封面</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="hidden" id="testimg" name="figimg"/>
+                    <!-- projectfile -->
+                    <input type="file" multiple class="projectfile" accept="image/*" name="figimg" id="Img">
+                </div>
+            </div>
+            <button type="button" onclick="add()" class="btn btn-info btn-sm">保存</button>
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="col-md-3" >
+
+
+
+    </div>
+</div>
+
+</body>
+<script>
+    $(function () {
+     f();
+    })
+
+    function f() {
+        var  sex=$("#sex").val();
+        $("#tid option[ value="+sex+"]").attr("selected", true);
+
+
+    }
+
+  function add() {
+
+
+      $.ajax({
+          url:'../b/add',
+          data:$("#addBookForm").serialize(),
+          type:'post',
+          success:function(){
+
+
+                  alert("成功");
+
+      }
+
+      })
+
+  }
+
+
+</script>
+</html>

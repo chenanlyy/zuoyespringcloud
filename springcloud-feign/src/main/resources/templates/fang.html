@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js2/jquery.min.js"></script>
+    <script src="../js2/bootstrap3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap3/css/bootstrap.css" />
+
+
+    <script src="../js2/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../js2/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap-table/bootstrap-table.css"/>
+
+    <script src="../js2/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js2/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="../js2/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+
+    <!-- 引入弹框的js -->
+    <script src="../js2/bootstrap-bootbox/bootbox.js"></script>
+
+
+    <link rel="stylesheet" href="../js2/bootstrap-fileinput/css/fileinput.css"/>
+    <script src="../js2/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="../js2/bootstrap-fileinput/js/locales/zh.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+<form class="form-horizontal" role="f orm" id="addBookForm">
+    <input type="hidden" name="id" id="id" >
+    <div class="form-group" >
+        <label for="inputEmail3"  class="col-sm-2 control-label">真实姓名:</label>
+        <div class="col-sm-5">
+            <input type="text" name="mimg"   id="ming" class="form-control"  />
+        </div>
+    </div>
+
+    <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">身份证号码:</label>
+    <div class="col-sm-7">
+        <input type="text" name="fightdate"  class="form-control"  />
+    </div>
+</div>
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">电子邮件：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+
+        <div class="col-sm-4" >
+            <input type="text"  name="email" id="emai" class="form-control"  />
+        </div>
+    </div>
+    <div class="row" >
+        <label for="inputPassword3" class="col-sm-2 control-label">联系方式：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+
+        <div class="col-md-4" >
+            <input type="text"  name="phone" id="phone" class="form-control"  />
+        </div>
+
+        <div class="col-md-4" >
+            <button type="button" class="btn btn-info btn-sm">验证手机号</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <label >封面</label>
+        </div>
+        <div class="col-md-6">
+            <input type="hidden" id="testimg" name="figimg"/>
+            <!-- projectfile -->
+            <input type="file" multiple class="projectfile" accept="image/*" name="figimg" id="Img">
+        </div>
+    </div>
+    <button type="button" onclick="add()" class="btn btn-info btn-sm">保存</button>
+</form>
+</body>
+</html>

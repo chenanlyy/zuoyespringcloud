@@ -1,0 +1,22 @@
+server:
+  port: 8098
+spring:
+  application:
+    name: cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          password: liyuanyao528
+          username: chenanlyy
+
+          uri: https://github.com/chenanlyy/springcloud.git
+
+          search-paths: cloudconfig/**
+
+eureka:
+  client:
+    service-url:
+
+      defaultZone: http://localhost:8080/eureka
+
