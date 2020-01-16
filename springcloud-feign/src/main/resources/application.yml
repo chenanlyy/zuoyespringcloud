@@ -1,19 +1,16 @@
-server:
-  port: 8085
 eureka:
   client:
     service-url:
-
       defaultZone: http://localhost:8089/eureka
+server:
+  port: 8085
 spring:
+  spring:
+    mongodb:
+      uri: mongodb://@localhost:27017/test
   application:
-
     name: cloud-feign
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
     suffix: .html
-  data:
-    solr:
-      host: http://127.0.0.1:8080/solr
-

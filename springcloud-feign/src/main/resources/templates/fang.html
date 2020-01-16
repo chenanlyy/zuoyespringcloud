@@ -23,17 +23,37 @@
     <link rel="stylesheet" href="../js2/bootstrap-fileinput/css/fileinput.css"/>
     <script src="../js2/bootstrap-fileinput/js/fileinput.js"></script>
     <script src="../js2/bootstrap-fileinput/js/locales/zh.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" type="text/css" href="../css2/build.css">
 </head>
 <body>
 
 
+<input type="button" onclick="a()">
 
 
 
-
-<form class="form-horizontal" role="f orm" id="addBookForm">
+<form class="form-horizontal" role="form" id="addBookForm">
     <input type="hidden" name="id" id="id" >
+    <div class="checkbox checkbox-inline">
+        <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">
+        <label for="inlineCheckbox1"> Inline One </label>
+    </div>
+    <div class="checkbox checkbox-success checkbox-inline">
+        <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" checked>
+        <label for="inlineCheckbox2"> Inline Two </label>
+    </div>
+    <div class="checkbox checkbox-inline">
+        <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">
+        <label for="inlineCheckbox3"> Inline Three </label>
+    </div>
+    <div class="checkbox checkbox-inline">
+        <input type="checkbox" class="styled" id="inlineCheckbox4" value="option1">
+        <label for="inlineCheckbox4"> Inline Three </label>
+    </div>
     <div class="form-group" >
+
         <label for="inputEmail3"  class="col-sm-2 control-label">真实姓名:</label>
         <div class="col-sm-5">
             <input type="text" name="mimg"   id="ming" class="form-control"  />
@@ -85,5 +105,16 @@
     </div>
     <button type="button" onclick="add()" class="btn btn-info btn-sm">保存</button>
 </form>
+<script>
+
+    function a() {
+    $("#addBookForm").
+        alert(a)
+    }
+
+
+
+
+</script>
 </body>
 </html>

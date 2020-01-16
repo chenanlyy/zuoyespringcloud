@@ -31,10 +31,55 @@
 
 
 
+
+
+
+
+
+
+    <script src="../js3/jquery.min.js"></script>
+
+    <script src="../js3/bootstrap-bootbox/bootbox.js"></script>
+    <script src="../js3/bootstrap3/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../js3/bootstrap3/css/bootstrap.css">
+    <script src="../js3/bootstrap-table/dist/bootstrap-table.js"></script>
+    <script src="../js3/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js"></script>
+    <link href="../js3/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet">
+    <script src="../js3/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js3/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link href="../js3/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="../js3/uploadify/uploadify.css">
+    <script src="../js3/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="../js3/bootstrap-fileinput/js/locales/zh.js"></script>
+
+    <script src="../js3/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js3/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+
+    <script src="../js3/bootstrap-dialog/dist/js/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="../js3/uploadify/jquery.uploadify.min.js"></script>
+
+    <link rel="stylesheet" href="../css3/style.css">
+    <link rel="stylesheet" href="../css3/comment.css">
+    <script src="../js3/jquery-1.12.0.min.js"></script>
+    <script src="../js3/jquery.flexText.js"></script>
+
+
+
+    <link href="../js3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../js3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../js3/bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+
+
+    <link href="../js3/bootstrap-dialog/dist/css/bootstrap-dialog.css" rel="stylesheet">
+    <link href="../js3/bootstrap-fileinput/css/fileinput.css" rel="stylesheet">
+    <style type="text/css">table {table-layout:fixed;} th, td{word-break:break-all;}  .fixed-table-container thead th .th-inner{ white-space:normal; }
+    </style>
+
 </head>
 <body >
 
-
+<input type="hidden" id="pid" th:value="${session.us2.cid}">
 <input type="hidden" name="mimg" th:value="${session.us2.cid}"  id="aid" class="form-control"  />
 
 <div class="row" style="background-color: ">
@@ -89,26 +134,119 @@
 
     </div>
     <!--style="border:3px solid #C0C0C0;"-->
-    <div class="col-md-6" style="border:3px solid #9d9d9d;width: 900px;height: 700px">
+    <div class="col-md-6" style="width: 1000px;height: 8000px">
         <span th:text="${session.us2.weizhi}"></span></br>
         <h2><span th:text="${session.us2.title}"></span></h2></p>
 
 
-        <div class="row text-info" >
+        <div class="row text-info"  >
             <div class="col-md-12 column" style="width: 450px;height: 600px;">
                 房东：<a>联系房东</a> <img alt="140x140" width="50px" height="50px"   th:src="${session.us2.fangimg}"  class="img-circle" /></br>
                 <font size="5px"><span th:text="${session.us2.jiyu}"></span></font>
+                <!--style="border:3px solid #C0C0C0;"-->
 
-                <h4>整套房子/公寓:</h4>  独享整个房源，无需与房东或他人共住
+
+
+
+
+
+
+            </center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+            <div class="col-xs-1 col-md-1">
+
+
+
+                <a data-toggle="tab" style="background: white" role="tab" aria-controls="pinglun" class="btn btn-info" href="#pinglun"><p style="color:red">评论</p></a>
+
+
+
+
+                <ul class="tab-content tabCon">
+
+
+
+
+
+
+                    <li role="tabpanel" class="fade tab-pane" th:align="left" id="pinglun">
+                        <div class="commentAll">
+                            <!--评论区域 begin-->
+                            <div class="reviewArea clearfix">
+
+                                <textarea  class="content comment-input" placeholder="请输入&hellip;" onkeyup="keyUP(this)"></textarea>
+                                <a href="javascript:;" class="plBtn">确定</a>
+                            </div>
+                            <!--评论区域 end-->
+
+                            <!--回复区域 begin-->
+                            <div class="comment-show" id="messDivId"></div>
+                            <!--回复区域 end-->
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h4>整套房子/公寓:</h4>  独享整个房源，无需与房东或他人共住
 
                 <h3>入住/退房:</h3><span th:text="${session.us2.ru}"></span></br>
             </div>
-            <div class="col-md-1 column">
-            </div>
+
     </div>
 </div>
 
-    <div class="col-md-3" style="margin-left: 20px">
+    <div class="col-md-3" style="margin-left: 20px;background-color: red;width: 100px;height: 400px">
         <!-- <div class="col-md-4 column" style="width: 400px;height: 400px;border:1px solid #9d9d9d">-->
         <form class="form-horizontal" role="f orm" id="addBookForm">
             <input type="hidden" name="id" id="id" >
@@ -148,6 +286,7 @@
     $(function () {
         initCity();
         initCar();
+        chapinglun();
     })
 
     function initCar() {
@@ -212,7 +351,8 @@
                         '</div>'*/
               /*  }*/
 
-                $("#aaaId").html(Cartable)
+                $("#aaaId").html(Cartable);
+
             }
         })
     }
@@ -257,5 +397,221 @@
     }
 
 </script>
+<script type="text/javascript">
 
+    function chapinglun(){
+        var id= $("#pid").val();
+        $.ajax({
+            url:'../b/queryCommentw',
+            data:{kechengid:id,pid:0},
+            type:'post',
+            dataType:'json',
+            success:function(data){
+                //对list值进行便利
+                var str = "";//定义用于拼接评论的字符串
+
+                for (var i = 0; i < data.length; i++) {
+                    str+="<div  style='height: 80px;width: 600px'    class=\"comment-show-con clearfix\">" +
+                        "<input type='hidden' class='comment-hfrid' value='"+data[i].id+"'>" +
+                        "<div class=\"comment-show-con-img pull-left\">" +
+                        "<img src=\"../assets/images/about-team-3.jpg\" alt=\"\"></div> " +
+                        "<div class=\"comment-show-con-list pull-left clearfix\">" +
+                        "<div class=\"pl-text clearfix\"> " +
+                        "<a href=\"#\" class=\"comment-size-name\">"+data[i].commentname+": </a> " +
+                        "<span class=\"my-pl-con\">&nbsp;"+data[i].commentcontent+"</span> </div> " +
+                        "<div class=\"date-dz\"> " +
+                        "<span class=\"date-dz-left pull-left comment-time\">"+data[i].commentdate+"</span> " +
+                        "<div class=\"date-dz-right pull-right comment-pl-block\">" +
+                        "<input type='hidden' class='comment-scid' value='"+data[i].id+"'>" +
+                        "<a href=\"javascript:;\" class=\"removeBlock\">删除</a> " +
+                        "<a href=\"javascript:;\" class=\"date-dz-pl pl-hf hf-con-block pull-left\">回复</a> " +
+                        "<span class=\"pull-left date-dz-line\">|</span> " +
+                        "<a href=\"javascript:;\" class=\"date-dz-z pull-left\">" +
+                        "<i class=\"date-dz-z-click-red\"></i>赞 (<i class=\"z-num\">"+data[i].praise+"</i>)</a> " +
+                        "</div> </div>";
+
+                    var string = "";//定义用于拼接回复的字符串
+                    if(data[i].reply.length>0){
+                        for (var j = 0; j < data[i].reply.length; j++) {
+                            string+="<div class=\"hf-list-con\" style=\"display: block;\">" +
+                                "<div class=\"all-pl-con\"><div class=\"pl-text hfpl-text clearfix\">" +
+                                "<a href=\"#\" class=\"comment-size-name\">"+data[i].reply[j].commentname+" : </a>" +
+                                "<span class=\"my-pl-con\">回复<a href=\"#\" class=\"atName\">@"+data[i].reply[j].replyname+" </a> : "+data[i].reply[j].commentcontent+"</span></div>" +
+                                "<div class=\"date-dz\"> " +
+                                "<span class=\"date-dz-left pull-left comment-time\">"+data[i].reply[j].commentdate+"</span> " +
+                                "<div class=\"date-dz-right pull-right comment-pl-block\"> " +
+                                "<input type='hidden' class='comment-scid' value='"+data[i].reply[j].id+"'>" +
+                                "<a href=\"javascript:;\" class=\"removeBlock\">删除</a> " +
+                                "<a href=\"javascript:;\" class=\"date-dz-pl pl-hf hf-con-block pull-left\">回复</a> " +
+                                "<span class=\"pull-left date-dz-line\">|</span> " +
+                                "<a href=\"javascript:;\" class=\"date-dz-z pull-left\">" +
+                                "<i class=\"date-dz-z-click-red\"></i>赞 (<i class=\"z-num\">"+data[i].reply[j].praise+"</i>)</a> </div> </div></div></div>";
+                        }
+                    }
+
+                    str+=string+"</div></div>";
+                }
+
+                $("#messDivId").html(str);
+            },
+            error:function(){
+                alert("获取评论失败");
+            }
+        })
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(function(){
+        $('.content').flexText();
+    });
+</script>
+<!--textarea限制字数-->
+<script type="text/javascript">
+    function keyUP(t){
+        var len = $(t).val().length;
+        if(len > 139){
+            $(t).val($(t).val().substring(0,140));
+        }
+    }
+</script>
+<!--点击评论新增评论-->
+<script type="text/javascript">
+
+
+
+
+
+    $('.commentAll').on('click','.plBtn',function(){
+
+
+        var commentcontent = $(this).siblings('.flex-text-wrap').find('.comment-input').val();
+        var id= $("#pid").val();
+        if (commentcontent==null&&commentcontent==""){
+            alert("评论不能为空！");
+            return;
+        }
+        $.ajax({
+            url:'../b/addComment?kechengid='+id+'&commentcontent='+commentcontent,
+            type:'post',
+            success:function(data){
+                location.reload();
+            }
+        })
+
+
+    });
+
+
+</script>
+<!--点击回复创建回复输入框-->
+<script type="text/javascript">
+    $('.comment-show').on('click','.pl-hf',function(){
+        //获取回复人的名字
+        var fhName = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+        //回复@
+        var fhN = '回复@'+fhName;
+        //var oInput = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.hf-con');
+        var fhHtml = '<div class="hf-con pull-left"> <textarea class="content comment-input hf-input" placeholder="" onkeyup="keyUP(this)"></textarea> <a href="javascript:;" class="hf-pl">评论</a></div>';
+        //显示回复
+        if($(this).is('.hf-con-block')){
+            $(this).parents('.date-dz-right').parents('.date-dz').append(fhHtml);
+            $(this).removeClass('hf-con-block');
+            $('.content').flexText();
+            $(this).parents('.date-dz-right').siblings('.hf-con').find('.pre').css('padding','6px 15px');
+            //console.log($(this).parents('.date-dz-right').siblings('.hf-con').find('.pre'))
+            //input框自动聚焦
+            $(this).parents('.date-dz-right').siblings('.hf-con').find('.hf-input').val('').focus().val(fhN);
+        }else {
+            $(this).addClass('hf-con-block');
+            $(this).parents('.date-dz-right').siblings('.hf-con').remove();
+        }
+    });
+</script>
+<!--回复框点评论 新增回复-->
+<script type="text/javascript">
+    $('.comment-show').on('click','.hf-pl',function(){
+        //获取被评论的id做为pid
+        //var commentpid = $(this).parents('.pull-left').parents('.date-dz').parents('.all-pl-con').parents('.hf-list-con').siblings('.clearfix').find('.comment-hfid').val();
+        var commentpid = $(this).parents('.clearfix').find('.comment-hfrid').val();
+        //获取输入内容
+        var neirong = $(this).siblings('.flex-text-wrap').find('.hf-input').val();  //  获取的是 回复@张三:评论内容
+        var split = neirong.split(":");
+        var split2 = split[0].split("@");
+        var commentcontent=split[1];    //  分割出输入的评论
+        var replyname = split2[1];  //  分割出被回复的人名
+        //alert("id="+commentpid);
+        var id= $("#pid").val();
+
+
+
+        // alert("内容="+commentcontent);
+        //alert("被回复的人="+replyname);
+        //  var kechengid = 12; // 当前教师或者课程id
+        if (commentcontent==null&&commentcontent==""){
+            alert("回复不能为空！");
+            return;
+        }
+
+        $.ajax({
+            url:'../b/addComment?kechengid='+id+'&commentcontent='+commentcontent+'&commentpid='+commentpid+'&replyname='+replyname,
+            type:'post',
+            success:function(data){
+                location.reload();
+            }
+        })
+
+
+    });
+
+</script>
+<!--删除评论-->
+<script type="text/javascript">
+    $('.commentAll').on('click','.removeBlock',function(){
+        var id= $("#pid").val();
+        var delid = $(this).siblings('.comment-scid').val();    //  要删除的评论id
+        $.ajax({
+            url:'../b/delComment?id='+delid+'&kechengid='+id,
+            type:'post',
+            success:function(data){
+                location.reload();
+            }
+        })
+    })
+</script>
+<!--点赞-->
+<script type="text/javascript">
+    $('.comment-show').on('click','.date-dz-z',function(){
+        var zanid = $(this).siblings('.comment-scid').val();    //  点赞的评论id
+        //alert("被点赞的id"+zanid);
+        $.ajax({
+            url:'../b/toPraise?id='+zanid,
+            type:'post',
+            success:function(data){
+                if(data==0){
+                    location.reload();
+                    alert("取消点赞");
+                }else{
+                    alert("点赞成功");
+                    location.reload();
+                }
+                //location.reload();
+            }
+        })
+
+        /*   var zNum = $(this).find('.z-num').html();
+             if($(this).is('.date-dz-z-click')){
+                   zNum--;
+                   $(this).removeClass('date-dz-z-click red');
+                   $(this).find('.z-num').html(zNum);
+                   $(this).find('.date-dz-z-click-red').removeClass('red');
+             }else {
+                   zNum++;
+                   $(this).addClass('date-dz-z-click');
+                   $(this).find('.z-num').html(zNum);
+                   $(this).find('.date-dz-z-click-red').addClass('red');
+        }*/
+    })
+</script>
 </html>

@@ -24,7 +24,14 @@
     </select>
 
 
+    <select id="queryxiao" resultType="com.jk.model.xiaoModel">
 
+     SELECT * from t_xiaoxi  where id= #{id}
+
+
+
+
+    </select>
 
 
 

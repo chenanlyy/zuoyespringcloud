@@ -3,6 +3,7 @@ package com.jk.service;
 import com.jk.model.HomestayMdel;
 import com.jk.model.ImgModel;
 import com.jk.model.UserMdel;
+import com.jk.model.xiaoModel;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface UserService  {
     HomestayMdel queryzhu2(String id);
 
     List<ImgModel> queryimg(String id);
+
+    List<xiaoModel> queryxiao(String id);
 }

@@ -1,8 +1,6 @@
 package com.jk.service;
 
-import com.jk.model.HomestayMdel;
-import com.jk.model.ImgModel;
-import com.jk.model.UserMdel;
+import com.jk.model.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,4 +25,14 @@ public interface Bookserver {
     HomestayMdel queryzhu2(@RequestParam("id") String id);
     @GetMapping("b/queryimg")
     List<ImgModel> queryimg(@RequestParam("id") String id);
+    @GetMapping("b/queryxiao")
+    List<xiaoModel> queryxiao(String id);
+    @PostMapping("b/queryCommentById")
+    List<Comment> queryCommentById(@RequestParam("commentid") String commentid,@RequestParam("pid") String pid);
+    @PostMapping("b/queryPraise")
+    List<Praise> queryPraise(@RequestParam("userid") Integer userid, @RequestParam("id") String id);
+    @PostMapping("b/delPraise")
+    void delPraise(@RequestParam("id") String id);
+    @PostMapping("b/addPraise")
+    void addPraise(@RequestParam("userid") Integer userid,@RequestParam("id") String id);
 }

@@ -1,5 +1,8 @@
 package com.jk.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")
 public class UserMdel {
     private  Integer id;
     private  String username;

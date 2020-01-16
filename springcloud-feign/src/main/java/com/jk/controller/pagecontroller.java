@@ -57,4 +57,8 @@ public class pagecontroller {
     public String  popupsignin() {
         return "popupsignin";
     }
+    @RequestMapping("deng")
+    public String  deng() {
+        return "deng";
+    }
 }

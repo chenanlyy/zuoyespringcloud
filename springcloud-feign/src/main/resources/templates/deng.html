@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js2/jquery.min.js"></script>
+    <script src="http://www.5imoban.net/download/jquery/jquery.cookie.min.js"></script>
+
+
+</head>
+<body>
+<form action="">
+    <table>
+        <tr>
+            <td>用户名</td>
+
+            <td><input type="text" name="username" ></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name="password" ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" value="yes" name="y">自动登录</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" value="登录" onclick="login()" id="dl"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+<script>
+
+    function login(){
+        // 获取账号
+        var username = $("[name = 'username']").val();
+        //	获取密码
+        var password = $("[name = 'password']").val();
+        // 当复选框选中的时候，获取到此value值
+        var y = $("[name = 'y']:checked").val();
+        $.post(
+            "../b/login",
+            {username:username,password:password,y:y},
+
+            function(obj){
+                if(obj){
+                    alert("登录成功");
+                    location.href="../main/main";
+                }else{
+                    alert("登录失败");
+                }
+            },
+            "json"
+        );
+    }
+
+
+
+
+
+
+
+
+
+</script>
+<script>	/*$(function(){
+    // 判断Cookie中是否有值，有值则回显，反之就不用管了
+    if("${cookie.username.value}"!=''&&"${cookie.pwd.value}"!=''){
+        $("[name='username']").val("${cookie.username.value}");
+        $("[name='password']").val("${cookie.password.value}");
+        // 这个事件可以模拟“我”直接触发登录的那个点击事件
+        $('#dl').trigger("click");
+    }
+})*/
+</script>
+</html>

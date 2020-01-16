@@ -4,6 +4,7 @@ import com.jk.mapper.bookmapper;
 import com.jk.model.HomestayMdel;
 import com.jk.model.ImgModel;
 import com.jk.model.UserMdel;
+import com.jk.model.xiaoModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +48,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<ImgModel> queryimg(String id) {
         return dao.queryimg(id);
+    }
+
+    @Override
+    public List<xiaoModel> queryxiao(String id) {
+        return dao.queryxiao(id);
     }
 }

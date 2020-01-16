@@ -4,6 +4,8 @@
 
 <head>
 
+
+
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -57,7 +59,7 @@
 <table id="dg"></table>
     <!--====== PRELOADER  PART START ======-->
 
-    <div id="preloader">
+    <div id="preloader" >
         <div id="loader">
             <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -69,28 +71,33 @@
 
     <div class="search-box">
         <div class="search-header">
-            <div class="container mt-60">
+            <div class="container mt-60" >
                 <div class="row">
                     <div class="col-6">
-                        <h5 class="search-title">Search</h5> <!-- search title -->
+                        <h5 class="search-title">消息</h5> <!-- search title -->
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" >
                         <div class="search-close text-right">
-                            <button class="search-close-btn">Close <span></span><span></span></button>
+                            <button class="search-close-btn">关闭 <span></span><span></span></button>
                         </div> <!-- search close -->
+
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- search header -->
-        <div class="search-body">
+        <p></p>
+        <center>
+
+
+
+        </center>
+
+         <div class="search-body" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="search-form">
-                            <form action="#">
-                                <input type="text" placeholder="Search for Products">
-                                <button><i class="flaticon-search"></i></button>
-                            </form>
+
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -203,7 +210,8 @@
                                     <li class="nav-item"><a href="javascript:fang()" >成为房东</a></li>
                                     <li class="nav-item"><a href="product-grid.html">Product Grid</a></li>
                                     <li class="nav-item"><a href="javascript:deng()">登录</a></li>
-                                    <li class="nav-item"><a class="page-scroll" href="contact-us.html">个人中心</a></li>
+
+                                    <li class="nav-item"><a class="page-scroll" href="javascript:information()">我的消息</a></li>
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="navbar-icon d-none d-sm-block">
@@ -929,8 +937,8 @@
                             '</a>'+
                             '<div class="caption">'+
                             '<h3>'+data.rows[i].title+'</h3>'+
-
-                            '<p>价格&nbsp;'+data.rows[i].price+ '/月</p>'+
+                            '<h3>'+data.rows[i].price+'</h3>'+
+                            '<p>价格&nbsp;'+data.rows[i].price+'</p>'+
                             '<a  href="#" class="btn btn-primary">预定</a>'+
                             '<a   class=""></a>'+
                             '</div>'+
@@ -962,7 +970,7 @@
                             '<h4>'+data[i].title+'</h4>'+
 
                             '<h4> <font color="red">价格  ：'+data[i].price+
-                            +'&nbsp; /晚</font></h4></p>'+
+                            '&nbsp; /晚</font></h4></p>'+
                             '<p> <FONT SIZE="6PX" COLOR="red">面积:&nbsp;'+data[i].proportion+ ' m2 </FONT>&nbsp;&nbsp; <font size="6px" color="#00008b"><b>房东：</b></font><font color="blue" size="5px">'+data[i].fangname+'</font> </p>'+
                             '<a  href="javascript:xiang('+data[i].cid+')" class="btn btn-primary">详情</a>'+
                             '<a   class=""></a>'+
@@ -1004,6 +1012,15 @@
     }
     function deng() {
         location.href="../p/popupsignin";
+    }
+
+    function information() {
+        var id=$("#id").val();
+        if(id==-1){
+            alert("请先登录")
+            return ;
+        }
+        location.href="../p/information?id="+id;
     }
 </script>
 </html>

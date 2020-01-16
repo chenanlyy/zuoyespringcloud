@@ -3,6 +3,7 @@ package com.jk.mapper;
 import com.jk.model.HomestayMdel;
 import com.jk.model.ImgModel;
 import com.jk.model.UserMdel;
+import com.jk.model.xiaoModel;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,6 @@ public interface bookmapper {
     HomestayMdel queryzhu2(@Param("id") String id);
     @Select("SELECT * FROM t_img where tid =#{id} ")
     List<ImgModel> queryimg(@Param("id") String id);
+
+    List<xiaoModel> queryxiao(@Param("id") String id);
 }
