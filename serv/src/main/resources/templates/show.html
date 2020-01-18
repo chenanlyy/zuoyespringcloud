@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.8.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="../jsa/easyui-1.7.0/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../jsa/easyui-1.7.0/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../jsa/easyui-1.7.0/demo.css">
+    <script type="text/javascript" src="../jsa/easyui-1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../jsa/easyui-1.7.0/jquery.easyui.min.js"></script>
+    <script src="../jsa/uploadify/jquery.uploadify.min.js"></script>
+    <script src="../jsa/easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="../jsa/uploadify/uploadify.css" />
+</head>
+<body>
+<table id="dg"></table>
+<script type="text/javascript"  th:inline="none">
+    $(function () {
+
+query();
+
+
+    })
+    function query() {
+        $('#dg').datagrid({
+            url:'../h/queryuser',
+            columns:[[
+                {field:'id',title:'id',width:100},
+                {field:'username',title:'用户名称',width:100},
+                {field:'pwd',title:'用户密码',width:100},
+                {field:'phone',title:'手机号',width:120},
+                {field:'email',title:'邮箱',width:200,align:'right'}    ,
+                {field:'zhu',title:'地址',width:300,align:'right'}    ,
+                {field:'sex',title:'作者性别', formatter: function(value,row,index){
+                        var aa="";
+                        if (value==1) {
+                            aa+="男";
+                        }else {
+                            aa+="女";
+                        }
+                        return  aa;
+
+                    },width:100,align:'right'}    ,
+
+                {field:'xxxxxx',title:'操作',
+                    formatter: function(value,row,index){
+
+                        var content = "    <a href='javascript:del(\""+row.id+"\")' class='easyui-linkbutton' iconCls:'icon-cancel'>删除</a>";
+
+
+                        return content;
+                    },width:$(this).width() * 0.2}
+
+            ]]   ,
+            toolbar: [{
+                iconCls: 'icon-clear',
+                text:"批量删除",
+                /* 可以写js逻辑  */
+                handler: function(){
+                    var bids = "";
+                    var arr = $("#dg").datagrid("getChecked");
+                    for (var i = 0; i < arr.length; i++) {
+                        bids += "," + arr[i].tArid;
+                    }
+
+                    bids = bids.substring(1);
+
+                    del(bids);
+                }
+            },'---',{
+                iconCls: 'icon-add',
+                text:"新增",
+                handler: function(){
+                    $('#up').dialog('open');
+
+                }
+            }],
+            /* 显示分页工具栏 */
+            pagination:true,
+            /* pageSize 必须和 pagelist 一起连用并且 pagesize的值是pagelist中其中一个 */
+            pageSize:2,
+            pageList:[2,4,6,8,10]
+
+        });
+
+    }
+
+</script>
+</body>
+
+</html>
