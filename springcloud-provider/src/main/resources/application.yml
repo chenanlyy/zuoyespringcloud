@@ -9,7 +9,7 @@ spring:
   spring:
     mongodb:
       uri: mongodb://@localhost:27017/test
-  redis:
+    redis:
     host: 127.0.0.1
     maxActive: 600
     maxIdle: 300

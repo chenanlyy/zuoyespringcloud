@@ -151,7 +151,7 @@ public class bookcontroller {
         pl.setPraise(0);    //  点赞数默认为0
         mongoTemplate.save(pl);
         Praise praise = new Praise();
-        praise.setCoid("111111111111111111111111111111");
+
         mongoTemplate.save(praise);
 
     }
@@ -200,5 +200,10 @@ public class bookcontroller {
         pl.setCommentid(commentid);
         mongoTemplate.remove(pl);
     }
+
+
+
+
+
 
 }

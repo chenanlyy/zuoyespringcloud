@@ -61,4 +61,12 @@ public class pagecontroller {
     public String  deng() {
         return "deng";
     }
+    @RequestMapping("houzhu")
+    public  String houzhu(String[] args) {
+        return "houzhu";
+    }
+    @RequestMapping("add")
+    public  String add(String[] args) {
+        return "add";
+    }
 }

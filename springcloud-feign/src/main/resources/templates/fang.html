@@ -28,15 +28,15 @@
     <link rel="stylesheet" type="text/css" href="../css2/build.css">
 </head>
 <body>
+<h2>房屋位置</h2><br>
 
 
-<input type="button" onclick="a()">
 
 
 
 <form class="form-horizontal" role="form" id="addBookForm">
     <input type="hidden" name="id" id="id" >
-    <div class="checkbox checkbox-inline">
+  <!--  <div class="checkbox checkbox-inline">
         <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">
         <label for="inlineCheckbox1"> Inline One </label>
     </div>
@@ -51,12 +51,12 @@
     <div class="checkbox checkbox-inline">
         <input type="checkbox" class="styled" id="inlineCheckbox4" value="option1">
         <label for="inlineCheckbox4"> Inline Three </label>
-    </div>
+    </div>-->
     <div class="form-group" >
 
-        <label for="inputEmail3"  class="col-sm-2 control-label">真实姓名:</label>
+        <label for="inputEmail3"  class="col-sm-2 control-label">地区城市:</label>
         <div class="col-sm-5">
-            <input type="text" name="mimg"   id="ming" class="form-control"  />
+            <input type="text" name="mimg"  placeholder="例如："  id="ming" class="form-control"  />
         </div>
     </div>
 
@@ -67,22 +67,16 @@
     </div>
 </div>
 
-    <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">电子邮件：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
 
-        <div class="col-sm-4" >
-            <input type="text"  name="email" id="emai" class="form-control"  />
-        </div>
-    </div>
     <div class="row" >
-        <label for="inputPassword3" class="col-sm-2 control-label">联系方式：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+        <label for="inputPassword3" class="col-sm-2 control-label">小区街道：&nbsp;<span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
 
         <div class="col-md-4" >
             <input type="text"  name="phone" id="phone" class="form-control"  />
         </div>
 
         <div class="col-md-4" >
-            <button type="button" class="btn btn-info btn-sm">验证手机号</button>
+            <button type="button" class="btn btn-info btn-sm">门牌号</button>
         </div>
 
 
@@ -90,20 +84,17 @@
 
 
 
-
-
-
-    <div class="row">
-        <div class="col-md-2">
-            <label >封面</label>
-        </div>
-        <div class="col-md-6">
-            <input type="hidden" id="testimg" name="figimg"/>
-            <!-- projectfile -->
-            <input type="file" multiple class="projectfile" accept="image/*" name="figimg" id="Img">
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">门牌号:</label>
+        <div class="col-sm-7">
+            <input type="text" name="fightdate"  class="form-control"  />
         </div>
     </div>
-    <button type="button" onclick="add()" class="btn btn-info btn-sm">保存</button>
+
+
+
+    </div>
+    <button type="button" onclick="add()" class="btn btn-info btn-sm">下一步</button>
 </form>
 <script>
 
