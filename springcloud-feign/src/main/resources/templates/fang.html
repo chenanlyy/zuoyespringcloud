@@ -26,6 +26,16 @@
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
     <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
     <link rel="stylesheet" type="text/css" href="../css2/build.css">
+    <style type="text/css">
+        .comments {
+            width:100%;/*自动适应父布局宽度*/
+            overflow:auto;
+            word-break:break-all;
+            /*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，
+            当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+        }
+    </style>
+
 </head>
 <body>
 <h2>房屋位置</h2><br>
@@ -35,35 +45,19 @@
 
 
 <form class="form-horizontal" role="form" id="addBookForm">
-    <input type="hidden" name="id" id="id" >
-  <!--  <div class="checkbox checkbox-inline">
-        <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">
-        <label for="inlineCheckbox1"> Inline One </label>
-    </div>
-    <div class="checkbox checkbox-success checkbox-inline">
-        <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" checked>
-        <label for="inlineCheckbox2"> Inline Two </label>
-    </div>
-    <div class="checkbox checkbox-inline">
-        <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">
-        <label for="inlineCheckbox3"> Inline Three </label>
-    </div>
-    <div class="checkbox checkbox-inline">
-        <input type="checkbox" class="styled" id="inlineCheckbox4" value="option1">
-        <label for="inlineCheckbox4"> Inline Three </label>
-    </div>-->
+
     <div class="form-group" >
 
         <label for="inputEmail3"  class="col-sm-2 control-label">地区城市:</label>
         <div class="col-sm-5">
-            <input type="text" name="mimg"  placeholder="例如："  id="ming" class="form-control"  />
+            <input type="text" name="weizhi"  placeholder="例如："  id="ming" class="form-control"  />
         </div>
     </div>
 
     <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">身份证号码:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">入住时间:</label>
     <div class="col-sm-7">
-        <input type="text" name="fightdate"  class="form-control"  />
+        <input type="text" name="ru"  class="form-control"  />
     </div>
 </div>
 
@@ -82,25 +76,134 @@
 
     </div>
 
-
-
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">面积（m2）:</label>
+        <div class="col-sm-4">
+            <input type="text" name="fightdate"  class="form-control"  />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">价格（每晚）:</label>
+        <div class="col-sm-4">
+            <input type="text" name="price"  class="form-control"  />
+        </div>
+    </div>
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">门牌号:</label>
         <div class="col-sm-7">
             <input type="text" name="fightdate"  class="form-control"  />
         </div>
     </div>
+    <div class="form-group">
+        <label for="fightdate" class="col-sm-2 control-label">房屋介绍:</label>
+        <div class="col-sm-8">
 
+            <!-- 第一个是普通textarea -->
+            <textarea name="title"  class="comments" rows="8" cols="8"> </textarea>
+            <!-- 以下两种方式都可以解决textarea行高自动适应类容的高度 -->
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="fightdate" class="col-sm-2 control-label">房东寄语:</label>
+            <div class="col-sm-8">
+
+                <!-- 第一个是普通textarea -->
+                <textarea name="jiyu" class="comments" rows="8" cols="8"> </textarea>
+                <!-- 以下两种方式都可以解决textarea行高自动适应类容的高度 -->
+
+            </div>
 
 
     </div>
-    <button type="button" onclick="add()" class="btn btn-info btn-sm">下一步</button>
+
+
+    <div class="form-group">
+        <label for="fightdate" class="col-sm-2 control-label">设备服务:</label>
+        <div class="col-sm-8">
+
+            <div>
+                <input type="hidden" name="id" id="id" ><div class="checkbox checkbox-inline">
+                <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">
+                <label for="inlineCheckbox1"> 无线网 </label>
+            </div>
+                <div class="checkbox checkbox-success checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1" checked>
+                    <label for="inlineCheckbox2"> 空调 </label>
+                </div>
+                <div class="checkbox checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">
+                    <label for="inlineCheckbox3"> 电视 </label>
+                </div>
+                <div class="checkbox checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox4" value="option1">
+                    <label for="inlineCheckbox4"> 洗衣机 </label>
+                </div>
+                <div class="checkbox checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox5" value="option1">
+                    <label for="inlineCheckbox5"> 洗衣机 </label>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <label for="fightdate" class="col-sm-2 control-label">房屋户型:</label>
+        <div class="col-sm-8">
+
+            <!-- 第一个是普通textarea -->
+            <textarea name="" class="comments" rows="5" cols="5">例如：卧室1间，卫生间：1间客厅：1间，厨房：1间，书房：1间
+
+
+            </textarea>
+            <!-- 以下两种方式都可以解决textarea行高自动适应类容的高度 -->
+
+        </div>
+
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="fightdate" class="col-sm-2 control-label">床型:</label>
+        <div class="col-sm-8">
+
+            <!-- 第一个是普通textarea -->
+            <textarea name="" class="comments" rows="5" cols="5">例如：卧室1间，卫生间：1间客厅：1间，厨房：1间，书房：1间
+
+
+            </textarea>
+            <!-- 以下两种方式都可以解决textarea行高自动适应类容的高度 -->
+
+        </div>
+
+
+    </div>
+    <button type="button" onclick="add()" class="btn btn-info btn-sm">完成</button>
+
+
 </form>
 <script>
 
-    function a() {
-    $("#addBookForm").
-        alert(a)
+    function add() {
+
+        $.ajax({
+            url: '../b/addhome',
+            type: 'post',
+            cache:false,
+            data: $("#addBookForm").serialize(),
+            success: function () {
+
+
+
+            }, error: function () {
+                alert("新增失败");
+            }
+        });
+
+
     }
 
 

@@ -35,4 +35,6 @@ public interface Bookserver {
     void delPraise(@RequestParam("id") String id);
     @PostMapping("b/addPraise")
     void addPraise(@RequestParam("userid") Integer userid,@RequestParam("id") String id);
+    @PostMapping("b/addhome")
+    void addhome(@RequestBody HomestayMdel homepojo);
 }

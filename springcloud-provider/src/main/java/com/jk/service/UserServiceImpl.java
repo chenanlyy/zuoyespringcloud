@@ -54,4 +54,9 @@ public class UserServiceImpl implements UserService {
     public List<xiaoModel> queryxiao(String id) {
         return dao.queryxiao(id);
     }
+
+    @Override
+    public void addhome(HomestayMdel homepojo) {
+        dao.addhome(homepojo);
+    }
 }

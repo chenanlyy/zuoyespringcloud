@@ -76,4 +76,16 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <insert id="addhome" parameterType="com.jk.model.HomestayMdel" >
+    insert into t_zhu (cid, img, title,
+      type, neirong, price,
+      weizhi, proportion, landlord,
+      jiyu, ru, leixin)
+    values (#{cid,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{neirong,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER},
+      #{weizhi,jdbcType=VARCHAR}, #{proportion,jdbcType=INTEGER}, #{landlord,jdbcType=VARCHAR},
+      #{jiyu,jdbcType=VARCHAR}, #{ru,jdbcType=VARCHAR}, #{leixin,jdbcType=INTEGER})
+  </insert>
+
+
         </mapper>

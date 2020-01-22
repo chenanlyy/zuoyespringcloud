@@ -9,10 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +28,7 @@ import java.util.List;
 public class bookcontroller {
     @Autowired
     private booksercice bksercice;
+
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -73,13 +71,17 @@ public class bookcontroller {
         return bksercice.queryge(id);
     }
 
-    @PostMapping("add")
+    @PostMapping("adduser")
     public void add(UserMdel user) {
 
 
         bksercice.add(user);
     }
-
+    @PostMapping("addhome")
+    public  void addhome( HomestayMdel homepojo,HttpSession HttpSession) {
+        UserMdel user= (UserMdel) HttpSession.getAttribute("user");
+        bksercice.addhome(homepojo);
+    }
     @GetMapping("queryimg")
     public List<ImgModel> queryimg(String id) {
         return bksercice.queryimg(id);
@@ -200,7 +202,6 @@ public class bookcontroller {
         pl.setCommentid(commentid);
         mongoTemplate.remove(pl);
     }
-
 
 
 

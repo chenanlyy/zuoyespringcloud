@@ -13,6 +13,15 @@ public class HomestayMdel {
   private String fangimg;
  private  String ru;
 private  String jiyu;
+private  String leixin;
+
+    public String getLeixin() {
+        return leixin;
+    }
+
+    public void setLeixin(String leixin) {
+        this.leixin = leixin;
+    }
 
     public String getJiyu() {
         return jiyu;

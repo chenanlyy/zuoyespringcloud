@@ -8,6 +8,15 @@ spring:
   spring:
     mongodb:
       uri: mongodb://@localhost:27017/test
+    redis:
+      maxIdle: 20
+      testOnBorrow: true
+      pass:
+      port: 6379
+      host: 127.0.0.1
+      maxWait: 9000
+      maxActive: 20
+
   application:
     name: cloud-feign
   thymeleaf:

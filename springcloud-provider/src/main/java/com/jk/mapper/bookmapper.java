@@ -25,4 +25,6 @@ public interface bookmapper {
     List<ImgModel> queryimg(@Param("id") String id);
 
     List<xiaoModel> queryxiao(@Param("id") String id);
+
+    void addhome(HomestayMdel homepojo);
 }

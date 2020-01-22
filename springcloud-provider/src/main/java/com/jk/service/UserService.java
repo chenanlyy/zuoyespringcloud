@@ -21,4 +21,6 @@ public interface UserService  {
     List<ImgModel> queryimg(String id);
 
     List<xiaoModel> queryxiao(String id);
+
+    void addhome(HomestayMdel homepojo);
 }

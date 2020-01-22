@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springcloud-config" />
         <module name="springcloud-feign" />
+        <module name="serv" />
         <module name="springcloud-provider" />
         <module name="springcloudcommon" />
         <module name="springcloud-eureka" />
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demobook" options="-parameters" />
+      <module name="serv" options="-parameters" />
       <module name="springcloud-config" options="-parameters" />
       <module name="springcloud-eureka" options="-parameters" />
       <module name="springcloud-feign" options="-parameters" />

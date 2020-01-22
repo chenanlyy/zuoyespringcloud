@@ -108,6 +108,11 @@ private UserService userService;
         mongoTemplate.save(dz);
     }
 
+    @Override
+    public void addhome(@RequestBody HomestayMdel homepojo) {
+        userService.addhome(homepojo);
+    }
+
 
     public static void main(String[] args) {
 
